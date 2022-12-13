@@ -1,4 +1,4 @@
-button{
+button[class^="cell "] {
     background-color: white;
     border: none;
     color: white;
