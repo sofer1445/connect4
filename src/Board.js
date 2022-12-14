@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import checkWin from "./CheckWin";
 import Square from "./Square";
 import square from "./Square";
 
@@ -44,9 +45,11 @@ class Board extends Component {
             this.disableButton((row * 7) + col);
 
         }
+        console.log("status: " + this.state.gameBoard);
 
-        if (this.checkWin()) {
-            alert("win");
+
+        if (checkWin(this.state.gameBoard)) {
+            alert("Player " + this.state.currentPlayer + " won!");
         }
     }
     disableButton = (index) => {
@@ -55,19 +58,18 @@ class Board extends Component {
         cell[index].disabled = true;
 
     }
-    checkPosition = (row , col) => {
+    checkPosition = (row, col) => {
         const cell = document.getElementsByClassName("cell ");
         console.log(cell.length, (row * 7) + col);
         // let rowCheck = Math.floor((col + indexBoard)/lengthRow);
         // if (rowCheck >= 0) {
-            if (cell[(lengthRow * 7) + col].style.backgroundColor === "blue" || cell[(lengthRow* 7) + col].style.backgroundColor==="red") {
-                lengthRow--;
-                this.checkPosition(lengthRow,col);
-            }else {
-                this.paintSquare(lengthRow, (col));
-                lengthRow=5;
-            }
-
+        if (cell[(lengthRow * 7) + col].style.backgroundColor === "blue" || cell[(lengthRow * 7) + col].style.backgroundColor === "red") {
+            lengthRow--;
+            this.checkPosition(lengthRow, col);
+        } else {
+            this.paintSquare(lengthRow, (col));
+            lengthRow = 5;
+        }
 
 
 
@@ -83,7 +85,7 @@ class Board extends Component {
                             {row.map((col, colIndex) => (
                                 <button className={"cell "} key={colIndex} value={col}
                                         aria-colcount={counter++}
-                                        onClick={() => this.checkPosition(rowIndex , colIndex)}
+                                        onClick={() => this.checkPosition(rowIndex, colIndex)}
                                 />
 
                             ))}
