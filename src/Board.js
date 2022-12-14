@@ -4,7 +4,7 @@ import square from "./Square";
 
 let counter = 0;
 let indexBoard = 35;
-let lengthRow = 7;
+let lengthRow = 5;
 
 
 class Board extends Component {
@@ -45,9 +45,9 @@ class Board extends Component {
 
         }
 
-        // if (this.checkWin()) {
-        //     alert("win");
-        // }
+        if (this.checkWin()) {
+            alert("win");
+        }
     }
     disableButton = (index) => {
         const cell = document.getElementsByClassName("cell ");
@@ -58,17 +58,17 @@ class Board extends Component {
     checkPosition = (row , col) => {
         const cell = document.getElementsByClassName("cell ");
         console.log(cell.length, (row * 7) + col);
-        let check = indexBoard + row;
-        if (check >= 0) {
-            if (cell[(row * 7) + col].style.value === 1 || cell[(row * 7) + col].style.value === 2) {
-                //const rounded = Math.round(num)
-
-
+        // let rowCheck = Math.floor((col + indexBoard)/lengthRow);
+        // if (rowCheck >= 0) {
+            if (cell[(lengthRow * 7) + col].style.backgroundColor === "blue" || cell[(lengthRow* 7) + col].style.backgroundColor==="red") {
+                lengthRow--;
+                this.checkPosition(lengthRow,col);
+            }else {
+                this.paintSquare(lengthRow, (col));
+                lengthRow=5;
             }
-            this.paintSquare(Math.floor(check / 7), (check % 7));
 
 
-        }
 
 
     }
