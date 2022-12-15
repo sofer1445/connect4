@@ -46,11 +46,17 @@ class Board extends Component {
 
         }
         console.log("status: " + this.state.gameBoard);
+        let winner = {
+            row: row,
+            col: col,
+            gameBoard: this.state.gameBoard
 
+        }
 
-        if (checkWin(this.state.gameBoard)) {
+        if (checkWin(winner)) {
             alert("Player " + this.state.currentPlayer + " won!");
         }
+
     }
     disableButton = (index) => {
         const cell = document.getElementsByClassName("cell ");
