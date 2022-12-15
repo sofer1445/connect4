@@ -12,18 +12,20 @@ button[class^="cell "] {
 }
 
 .game-board {
+
     display: grid;
     grid-template-columns: repeat(7,1fr);
     /*grid-template-rows: repeat(6, 1fr);*/
-    grid-gap: 6px;
-    width: 400px;
+    grid-gap: 10px;
+    width: 500px;
+    height: 60px;
     margin: 0 auto;
-    background-color : black;
-    border-radius: 6px;
-    border: 1px solid #333;
-    box-shadow: 0 0 0 1px #333;
+    background-color : burlywood;
+    border-radius: 0px;
+    border:1px solid #333;
+    /*box-shadow: 0 0 0 1px #333;*/
     padding: 3px;
-
+    justify-content: center;
 }
 
 .game-board .cell {
@@ -36,8 +38,6 @@ button[class^="cell "] {
     color: #333;
     box-shadow: 0 0 0 1px #333;
     cursor: pointer;
-
-
 }
 
 

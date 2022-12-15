@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import checkWin from "./CheckWin";
 import Square from "./Square";
 import square from "./Square";
+import app from "./App";
 
 let counter = 0;
 let indexBoard = 35;
@@ -50,13 +51,11 @@ class Board extends Component {
             row: row,
             col: col,
             gameBoard: this.state.gameBoard
-
         }
 
         if (checkWin(winner)) {
             alert("Player " + this.state.currentPlayer + " won!");
         }
-
     }
     disableButton = (index) => {
         const cell = document.getElementsByClassName("cell ");
@@ -76,10 +75,8 @@ class Board extends Component {
             this.paintSquare(lengthRow, (col));
             lengthRow = 5;
         }
-
-
-
     }
+
 
 
     render() {
