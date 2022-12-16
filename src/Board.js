@@ -55,6 +55,8 @@ class Board extends Component {
 
         if (checkWin(winner)) {
             alert("Player " + this.state.currentPlayer + " won!");
+            setTimeout(this.reloadPage, 1500);
+
         }
     }
     disableButton = (index) => {
@@ -100,6 +102,9 @@ class Board extends Component {
     }
 
 
+    reloadPage() {
+        window.location.reload();
+    }
 }
 
 export default Board;
