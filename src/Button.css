@@ -10,12 +10,16 @@ button[class^="cell "] {
     margin: 4px 2px;
     cursor: pointer;
 }
-
+h1{
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 50px;
+    text-align: center;
+}
 .game-board {
 
     display: grid;
     grid-template-columns: repeat(7,1fr);
-    /*grid-template-rows: repeat(6, 1fr);*/
     grid-gap: 10px;
     width: 500px;
     height: 60px;
@@ -23,9 +27,13 @@ button[class^="cell "] {
     background-color : burlywood;
     border-radius: 0px;
     border:1px solid #333;
-    /*box-shadow: 0 0 0 1px #333;*/
     padding: 3px;
     justify-content: center;
+    position: relative;
+    top: 75px;
+    /*background: image("con4.jpg");*/
+    /*transform: translate(-50%, -50%);*/
+    /*!*transform: translate(5%, 10%);*! מזיז ימינה ושמאלה*/
 }
 
 .game-board .cell {
@@ -39,5 +47,22 @@ button[class^="cell "] {
     box-shadow: 0 0 0 1px #333;
     cursor: pointer;
 }
+/*<style>*/
+/* .game-board {*/
+/*     position: absolute; !* Position the game board absolutely *!*/
+/*     top: 50%; !* Set the top edge of the game board to the center of the screen *!*/
+/*     left: 50%; !* Set the left edge of the game board to the center of the screen *!*/
+/*     transform: translate(-50%, -50%); !* Shift the game board back up and left by half its width and height *!*/
+/* }*/
+/*</style>*/
+
+/*  <div class="game-board">*/
+/*<!-- Your game board content goes here -->*/
+/*</div>*/
+
+
+
+
+
 
 

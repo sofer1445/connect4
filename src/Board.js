@@ -80,11 +80,11 @@ class Board extends Component {
     }
 
 
-
     render() {
         return (
             counter = 0,
                 <div>
+                    <h1>Connect 4</h1>
                     {this.state.gameBoard.map((row, rowIndex) => (
                         <div className="game-board" key={rowIndex}>
                             {row.map((col, colIndex) => (
@@ -94,8 +94,13 @@ class Board extends Component {
                                 />
 
                             ))}
+
                         </div>
+
+
                     ))}
+                    {/*<img src="con4.jpg" alt="game board pic"> לא מצליח לשים תמונה*/}
+                    {/*</img>*/}
                 </div>
         );
 
