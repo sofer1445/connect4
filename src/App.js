@@ -3,14 +3,13 @@ import Board from './Board';
 import './Button.css';
 
 
-const App = () =>{
-    const img = document.createElement('img');
-    img.src = 'con4.jpg';
-  return (
-      <div >
-          <Board />
-    </div>
-  );
+const App = () => {
+    return (
+        <div id="App">
+            <Board/>
+        </div>
+    );
 }
 
 export default App;
+

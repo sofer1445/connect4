@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import checkWin from "./CheckWin";
-import Square from "./Square";
-import square from "./Square";
-import app from "./App";
 
 let counter = 0;
 let indexBoard = 35;
@@ -56,8 +53,8 @@ class Board extends Component {
         if (checkWin(winner)) {
             alert("Player " + this.state.currentPlayer + " won!");
             setTimeout(this.reloadPage, 1500);
-
         }
+
     }
     disableButton = (index) => {
         const cell = document.getElementsByClassName("cell ");
@@ -68,8 +65,6 @@ class Board extends Component {
     checkPosition = (row, col) => {
         const cell = document.getElementsByClassName("cell ");
         console.log(cell.length, (row * 7) + col);
-        // let rowCheck = Math.floor((col + indexBoard)/lengthRow);
-        // if (rowCheck >= 0) {
         if (cell[(lengthRow * 7) + col].style.backgroundColor === "blue" || cell[(lengthRow * 7) + col].style.backgroundColor === "red") {
             lengthRow--;
             this.checkPosition(lengthRow, col);
@@ -91,7 +86,9 @@ class Board extends Component {
                                 <button className={"cell "} key={colIndex} value={col}
                                         aria-colcount={counter++}
                                         onClick={() => this.checkPosition(rowIndex, colIndex)}
+
                                 />
+
 
                             ))}
 
@@ -99,8 +96,7 @@ class Board extends Component {
 
 
                     ))}
-                    {/*<img src="con4.jpg" alt="game board pic"> לא מצליח לשים תמונה*/}
-                    {/*</img>*/}
+
                 </div>
         );
 
