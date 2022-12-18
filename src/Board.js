@@ -91,6 +91,7 @@ let numSteps = 0;
             counter = 0,
                 <div>
                     <h1>Connect 4</h1>
+
                     {this.state.gameBoard.map((row, rowIndex) => (
                         <div className="game-board" key={rowIndex}>
                             {row.map((col, colIndex) => (
@@ -106,7 +107,9 @@ let numSteps = 0;
                         </div>
 
 
+
                     ))}
+                    <h2>A number of steps : {counter - numSteps}</h2>
 
                 </div>
         );

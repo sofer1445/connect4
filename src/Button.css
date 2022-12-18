@@ -55,6 +55,13 @@ div[id="App"] {
     justify-content: center;
 
 }
+h2{
+    color: lightgoldenrodyellow;
+    font-size: 50px;
+    text-align: center;
+    position: relative;
+    top: 50px;
+}
 
 
 
