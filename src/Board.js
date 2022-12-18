@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import checkWin from "./CheckWin";
 
 let counter = 0;
-let indexBoard = 35;
 let lengthRow = 5;
+let numSteps = 0;
 
 
-class Board extends Component {
+
+    class Board extends Component {
     state = {
         gameBoard: [
             [0, 0, 0, 0, 0, 0, 0],
@@ -18,6 +19,7 @@ class Board extends Component {
         ],
         currentPlayer: 1,
         able: false,
+
 
     };
 
@@ -51,8 +53,10 @@ class Board extends Component {
         }
 
         if (checkWin(winner)) {
+            numSteps = 0;
             alert("Player " + this.state.currentPlayer + " won!");
             setTimeout(this.reloadPage, 1500);
+
         }
 
     }
@@ -63,6 +67,7 @@ class Board extends Component {
 
     }
     checkPosition = (row, col) => {
+        console.log("numSteps: " + numSteps);
         const cell = document.getElementsByClassName("cell ");
         console.log(cell.length, (row * 7) + col);
         if (cell[(lengthRow * 7) + col].style.backgroundColor === "blue" || cell[(lengthRow * 7) + col].style.backgroundColor === "red") {
@@ -71,6 +76,12 @@ class Board extends Component {
         } else {
             this.paintSquare(lengthRow, (col));
             lengthRow = 5;
+        }
+        if (numSteps === 41) {
+            numSteps = 0;
+            alert("Draw");
+            setTimeout(this.reloadPage, 1500);
+
         }
     }
 
@@ -85,9 +96,9 @@ class Board extends Component {
                             {row.map((col, colIndex) => (
                                 <button className={"cell "} key={colIndex} value={col}
                                         aria-colcount={counter++}
-                                        onClick={() => this.checkPosition(rowIndex, colIndex)}
+                                        onClick={ () => this.checkPosition(rowIndex, colIndex) + numSteps++}
+                                        />
 
-                                />
 
 
                             ))}
