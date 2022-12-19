@@ -6,8 +6,7 @@ let lengthRow = 5;
 let numSteps = 0;
 
 
-
-    class Board extends Component {
+class Board extends Component {
     state = {
         gameBoard: [
             [0, 0, 0, 0, 0, 0, 0],
@@ -19,8 +18,6 @@ let numSteps = 0;
         ],
         currentPlayer: 1,
         able: false,
-
-
     };
 
     setState(state, callback) {
@@ -56,9 +53,7 @@ let numSteps = 0;
             numSteps = 0;
             alert("Player " + this.state.currentPlayer + " won!");
             setTimeout(this.reloadPage, 1500);
-
         }
-
     }
     disableButton = (index) => {
         const cell = document.getElementsByClassName("cell ");
@@ -79,9 +74,8 @@ let numSteps = 0;
         }
         if (numSteps === 41) {
             numSteps = 0;
-            alert("Draw");
+            alert("No on won, try again!!");
             setTimeout(this.reloadPage, 1500);
-
         }
     }
 
@@ -91,29 +85,19 @@ let numSteps = 0;
             counter = 0,
                 <div>
                     <h1>Connect 4</h1>
-
                     {this.state.gameBoard.map((row, rowIndex) => (
                         <div className="game-board" key={rowIndex}>
                             {row.map((col, colIndex) => (
                                 <button className={"cell "} key={colIndex} value={col}
                                         aria-colcount={counter++}
-                                        onClick={ () => this.checkPosition(rowIndex, colIndex) + numSteps++}
-                                        />
-
-
-
+                                        onClick={() => this.checkPosition(rowIndex, colIndex) + numSteps++}
+                                />
                             ))}
-
                         </div>
-
-
-
                     ))}
                     <h2>A number of steps : {counter - numSteps}</h2>
-
                 </div>
         );
-
     }
 
 
